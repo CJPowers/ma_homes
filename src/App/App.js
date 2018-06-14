@@ -5,18 +5,33 @@ import Header from '../Header/Header';
 import TopNav from '../TopNav/TopNav';
 import Home from '../Home/Home';
 import AboutUs from '../AboutUs/AboutUs';
+import CustomHomes from '../CustomHomes/CustomHomes';
+import Warranty from '../Warranty/Warranty';
+import ContactUs from '../ContactUs/ContactUs';
+import MobileMenu from '../MobileMenu/MobileMenu';
+import {
+  AppContainer,
+  AppContent,
+  MainContent
+} from './AppStyledComponents';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
-        <TopNav />
-        <div>
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={AboutUs} />
-        </div>
-      </div>
+      <AppContainer>
+        <MobileMenu />
+        <AppContent>
+          <Header />
+          <TopNav />
+          <MainContent>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={AboutUs} />
+            <Route path="/custom-homes" component={CustomHomes} />
+            <Route path="/warranty" component={Warranty} />
+            <Route path="/contact" component={ContactUs} />
+          </MainContent>
+        </AppContent>
+      </AppContainer>
     );
   }
 }
